@@ -1,0 +1,6 @@
+coverage.out
+
+# Vim files
+.*.swp
+
+dist/
