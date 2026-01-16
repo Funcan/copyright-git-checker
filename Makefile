@@ -1,4 +1,4 @@
-default: audit test build
+default: fmt audit test build
 
 
 .PHONY: audit
@@ -24,3 +24,7 @@ build:
 .PHONY: clean
 clean:
 	rm -rf dist coverage.out
+
+.PHONY: fmt
+fmt:
+	go fmt ./...
