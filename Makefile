@@ -1,4 +1,4 @@
-default: fmt audit test build
+default: fmt test build
 
 
 .PHONY: audit
@@ -19,7 +19,7 @@ test/cover: test
 
 .PHONY: build
 build:
-	goreleaser build --snapshot --clean
+	go build ./...
 
 .PHONY: clean
 clean:
