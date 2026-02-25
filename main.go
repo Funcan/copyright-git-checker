@@ -71,9 +71,8 @@ func fixLine(s string, year string) string {
 			newYears = startYear + "-" + year
 		}
 	} else if strings.Contains(yearsPart, ",") {
-		// It's a comma-separated list, replace the last year
-		lastComma := strings.LastIndex(yearsPart, ",")
-		newYears = yearsPart[:lastComma+1] + " " + year
+		// It's a comma-separated list, extend the last year to a range
+		newYears = yearsPart + "-" + year
 	} else {
 		// Single year, convert to range
 		newYears = strings.TrimSpace(yearsPart) + "-" + year

@@ -83,10 +83,16 @@ func TestFixLine(t *testing.T) {
 			expected: "# (c) Copyright 2023-2026 Hewlett Packard Enterprise Development LP",
 		},
 		{
-			name:     "Comma separated years - update last",
+			name:     "Comma separated years - extend last to range",
 			input:    "# (c) Copyright 2020, 2023 Hewlett Packard Enterprise Development LP",
 			year:     "2026",
-			expected: "# (c) Copyright 2020, 2026 Hewlett Packard Enterprise Development LP",
+			expected: "# (c) Copyright 2020, 2023-2026 Hewlett Packard Enterprise Development LP",
+		},
+		{
+			name:     "Comma separated years no space - extend last to range",
+			input:    "# (C) Copyright 2023,2025 Hewlett Packard Enterprise Development LP",
+			year:     "2026",
+			expected: "# (C) Copyright 2023,2025-2026 Hewlett Packard Enterprise Development LP",
 		},
 		{
 			name:     "No change needed - non-copyright line",
